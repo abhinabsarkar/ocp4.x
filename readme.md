@@ -1,5 +1,5 @@
 # OpenShift 4.x
-* [Architecture]
+* Architecture
     * [Overview](/architecture/architecture-readme.md)
     * [RHCoreOS](/architecture/coreos-readme.md)
 * [Installation](/installation/install-readme.md)
