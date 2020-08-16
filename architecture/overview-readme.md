@@ -1,6 +1,5 @@
-# OpenShift 4.x
+# OpenShift 4.x overview
 
-## CoreOS
 OpenShift Container Platform uses Red Hat Enterprise Linux CoreOS (RHCOS), a container-oriented operating system that combines some of the best features and functions of the CoreOS and Red Hat Atomic Host operating systems. RHCOS is specifically designed for running containerized applications from OpenShift Container Platform and works with new tools to provide fast installation, Operator-based management, and simplified upgrades.
 
 RHCOS includes:
