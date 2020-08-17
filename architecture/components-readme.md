@@ -9,8 +9,11 @@
 ## OpenShift Worker Node
 ![Alt text](/images/ocp4.x-worker.jpg)
 
-## OpenShift HA Cluster with Infra Worker Node 
-![Alt text](/images/ocp4.x-with-infra-worker-nodes.jpg)
-
 ## OpenShift HA Cluster without Infra Worker Node
 ![Alt text](/images/ocp4.x-without-infra-worker-nodes.jpg)
+
+## OpenShift Infra Worker Node 
+![Alt text](/images/ocp4.x-infra.jpg)
+
+## OpenShift HA Cluster with Infra Worker Node 
+![Alt text](/images/ocp4.x-with-infra-worker-nodes.jpg)
