@@ -40,14 +40,14 @@ The logs are forwarded to the following
 
 * Splunk -  It is the external log aggregation system for *applications* running on OCP. Splunk has HEC (HTTP Event Collector) endpoint for each instance like On-prem, GCP & Azure (Prod/UAT/Dev). HEC uses a token-based authentication model and send data & application events to Secure HTTP (HTTPS) protocols. For more details please refer Splunk documentation - [link](https://docs.splunk.com/Documentation/Splunk/7.3.0/Data/UsetheHTTPEventCollector). Each instance have different indexer like On-prem, GCP & Azure (Prod/UAT/Dev) and connect with common search head.
 
-Below is an example of Splunk configuration at OpenShift end.
+    Below is an example of Splunk configuration at OpenShift end.
 
-Index Name :- 
-app_logs - Event Index - 10GB
-Azure Dev HEC Details:
-HEC end point: https://splunk-host.domain.com
-Port - 8088
-HEC Token: 12sd4b2321-a012-4be7-ac34-f3840902393
+    Index Name :- 
+    app_logs - Event Index - 10GB
+    Azure Dev HEC Details:
+    HEC end point: https://splunk-host.domain.com
+    Port - 8088
+    HEC Token: 12sd4b2321-a012-4be7-ac34-f3840902393
 
 * ArcSight - It is a cyber security product that  provides big data security analytics for security information and event management (SIEM), and log management. It helps customers identify and prioritize security threats, organize and track incident response activities, and simplify audit and compliance activities. All the syslogs are forwarded to ArcSight. Refer this link - [Forwarding logs using syslog protocol](https://docs.openshift.com/container-platform/4.3/logging/config/cluster-logging-external.html#cluster-logging-collector-syslog_cluster-logging-external) 
 
