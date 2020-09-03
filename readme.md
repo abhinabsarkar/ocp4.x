@@ -2,7 +2,7 @@
 * Architecture
     * [Overview](/architecture/overview-readme.md)
     * [Components](/architecture/components-readme.md)
-    * [RHCoreOS](/architecture/ coreos-readme.md)
+    * [RHCoreOS](/architecture/coreos-readme.md)
     * [Ignition](https://docs.openshift.com/container-platform/4.4/architecture/architecture-rhcos.html#rhcos-about-ignition_architecture-rhcos)
     * [Operators & CRD](/architecture/operators-readme.md)
     * Network Architecture
