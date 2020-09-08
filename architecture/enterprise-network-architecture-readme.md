@@ -1,7 +1,7 @@
 # OCP 4.x Enterprise Network Architecture
 The below diagram shows the enterprise network architecture for OCP4.x on Azure & the different interfacing systems on-premise.
 
-![Alt text](/images/ocp4.x-ipi-network-architecture-azure-enterprise.jpg)
+![Alt text](/images/ocp4.x-ipi-network-architecture-azure-enterprise-updated.jpg)
 
 Some of the interfacing systems that OCP4.x is integrated with are hosted on Azure, where as some are hosted on-premise. The component integration is listed below:
 
@@ -13,6 +13,12 @@ The OpenShift Container Platform is configured with the following DevOps toolset
 * Bitbucket - Source & version control repository
 * Jenkins - Jenkins provides building, testing, and deploying, facilitating continuous integration and continuous delivery.
 * Nexus - Docker registry
+* HashiCorp Vault - HashiCorp Vault is a centralized secrets management middleware. Developers and operators can just talk to an API and Vault takes care of encryption, key management, key rotation, and more. It helps in adopting DevSecOps framework which seeks to remove manual processes and allow operations in a low/zero-trust network. 
+> Refer this [link](https://www.hashicorp.com/resources/how-to-get-security-buy-in-from-developers/) for building secure development lifecycle and zero-trust networks
+
+The below diagram shows the workflow of Kubernetes Auth Method for OpenShift platform which is using Vault hosted externally. The details can be found in this [link](https://medium.com/hashicorp-engineering/vault-kubernetes-auth-method-for-openshift-9b9155590a6d)
+
+![Alt text](/images/k8s-auth-method.jpg)
 
 ### Monitoring & Alerting
 OpenShift Container Platform includes a pre-configured and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and ships with a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. Refer the below link for details
