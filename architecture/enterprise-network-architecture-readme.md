@@ -20,7 +20,11 @@ The below diagram shows the workflow of Kubernetes Auth Method for OpenShift pla
 
 ![Alt text](/images/k8s-auth-method.jpg)
 
-**Vault Injector** - The Vault Injector is a Mutating Webhook that will inject a Init container and a sidecar container into your pod for secrets management. The Init container will pull the secrets before your application container starts and put it into a shared volume that will be mounted in your app container. The sidecar will run along side your app container and keep the secret fresh in the mounted volume. If the secret is updated in Vault, the sidecar container will update it on the file system in your app container. The Mutating Webhook is triggered by adding annotations to your deployment/pod manifest.
+**Vault Injector** - The Vault Injector is a Mutating Webhook that will inject a Init container and a sidecar container into your pod for secrets management. The Init container will pull the secrets before your application container starts and put it into a shared volume that will be mounted in your app container. The Init container then terminates. The sidecar will run along side your app container and keep the secret fresh in the mounted volume. If the secret is updated in Vault, the sidecar container will update it on the file system in your app container. The Mutating Webhook is triggered by adding annotations to your deployment/pod manifest.
+
+![Alt image](/images/vault-injector.jpg)
+
+> For more details refer this [link](https://itnext.io/dynamic-vault-secrets-agent-sidecar-on-kubernetes-cc0ce3e54a94)
 
 ### Monitoring & Alerting
 OpenShift Container Platform includes a pre-configured and self-updating monitoring stack that is based on the Prometheus open source project and its wider eco-system. It provides monitoring of cluster components and ships with a set of alerts to immediately notify the cluster administrator about any occurring problems and a set of Grafana dashboards. Refer the below link for details
