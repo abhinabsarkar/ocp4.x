@@ -16,9 +16,9 @@ The OpenShift Container Platform is configured with the following DevOps toolset
 * HashiCorp Vault - HashiCorp Vault is a centralized secrets management middleware. Developers and operators can just talk to an API and Vault takes care of encryption, key management, key rotation, and more. It helps in adopting DevSecOps framework which seeks to remove manual processes and allow operations in a low/zero-trust network. 
 > Refer this [link](https://www.hashicorp.com/resources/how-to-get-security-buy-in-from-developers/) for building secure development lifecycle and zero-trust networks
 
-The below diagram shows the workflow of Kubernetes Auth Method for OpenShift platform which is using Vault hosted externally. The details can be found in this [link](https://medium.com/hashicorp-engineering/vault-kubernetes-auth-method-for-openshift-9b9155590a6d)
+The below diagram shows the workflow of Kubernetes Auth Method for OpenShift platform which is using Vault hosted externally. The details can be found in this [link](https://medium.com/hashicorp-engineering/vault-kubernetes-auth-method-for-openshift-9b9155590a6d) & this [link](https://itnext.io/dynamic-vault-secrets-agent-sidecar-on-kubernetes-cc0ce3e54a94)
 
-![Alt text](/images/k8s-auth-method.jpg)
+![Alt text](/images/vault-k8s-auth-method.jpg)
 
 **Vault Injector** - The Vault Injector is a Mutating Webhook that will inject a Init container and a sidecar container into your pod for secrets management. The Init container will pull the secrets before your application container starts and put it into a shared volume that will be mounted in your app container. The Init container then terminates. The sidecar will run along side your app container and keep the secret fresh in the mounted volume. If the secret is updated in Vault, the sidecar container will update it on the file system in your app container. The Mutating Webhook is triggered by adding annotations to your deployment/pod manifest.
 
