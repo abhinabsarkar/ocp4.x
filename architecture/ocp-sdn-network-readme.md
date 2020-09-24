@@ -60,7 +60,20 @@ OpenShift provides the following SDN plugins for configuring the network:
     * Pods can only communicate to Pods that share this VNID
     * Projects that receive VNID 0 can communicate with all other pods, and vice-versa
     * The default project has VNID 0. Services like load balancer have VNID 0, to communicate with all other pods in the cluster and vice versa.
- 3. networkpolicy plug-in - allows  project administrators to configure their own isolation policies by using NetworkPolicy objects.
+ 3. networkpolicy plug-in - allows  project administrators to configure their own isolation policies by using NetworkPolicy objects. (This is the default mode)
+
+ ```yaml
+ # Default network configuration for OpenShift SDN
+ spec:
+  defaultNetwork:
+    type: OpenShiftSDN
+    openshiftSDNConfig:
+      mode: NetworkPolicy
+      vxlanPort: 4789
+      mtu: 1450
+      enableUnidling: true
+  ```
+Refer this [github link](https://github.com/openshift/cluster-network-operator#configuring-openshiftsdn)
 
 OpenShift SDN maintains a registry of all nodes in the cluster. This registry is stored in etcd. When the system administrator registers a node, OpenShift SDN allocates an unused /23 subnet from the cluster network and stores this subnet in the registry. When a node is removed or deleted from the cluster, the OpenShift SDN frees the corresponding cluster network subnet. This subnet becomes available for future allocations to new nodes.
 
@@ -107,13 +120,13 @@ eth0 (in A’s netns) → vethA → br0 → tun0 → (NAT) → eth0 (physical de
 > Almost all packet delivery decisions are performed with OpenFlow rules in the OVS bridge br0, which simplifies the plug-in network architecture and provides flexible routing. In the case of the ovs-multitenant plug-in, this also provides enforceable [network isolation](https://docs.openshift.com/container-platform/3.5/architecture/additional_concepts/sdn.html#network-isolation-multitenant).
 
 
-
 ## References
 * [Networking in OpenShift - Best explained](https://www.redhat.com/files/summit/session-assets/2018/Network-security-for-apps-on-OpenShift.pdf)
 * [OpenShift & Network Security Zones](https://www.openshift.com/blog/openshift-and-network-security-zones-coexistence-approaches)
 * [Networking in Kubernetes explained](https://neuvector.com/network-security/advanced-kubernetes-networking/)
 * [Understanding kubernetes networking](https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727)
 * [Cluster network operator - OCP 4.x](https://docs.openshift.com/container-platform/4.5/networking/cluster-network-operator.html#nw-operator-cr_cluster-network-operator)
+* [Configuring OpenShift SDN - OCP 4.x - Github](https://github.com/openshift/cluster-network-operator#configuring-openshiftsdn)
 * [OpenShift SDN 3.x](https://docs.openshift.com/container-platform/3.5/architecture/additional_concepts/sdn.html)
 * [cidr calculator](https://www.ipaddressguide.com/cidr)
 * [Machine Network](https://docs.openshift.com/container-platform/4.5/installing/installing_azure/installing-azure-network-customizations.html)
