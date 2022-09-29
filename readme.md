@@ -11,3 +11,4 @@
         * [Enterprise Network Architecture](/architecture/enterprise-network-architecture-readme.md)
 * [Installation](/installation/install-readme.md)
 * [Concepts](/concepts/concepts-readme.md)
+* [Key terminologies & definitions](terminologies-readme.md)
